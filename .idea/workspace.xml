@@ -25,7 +25,7 @@
     <file path="/a.xml" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395567375794" ignored="false" />
     <file path="/pom.xml" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395567529748" ignored="false" />
     <file path="/index.jsp" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395567734866" ignored="false" />
-    <file path="/Dummy.txt" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395568899340" ignored="false" />
+    <file path="/Dummy.txt" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395568910401" ignored="false" />
     <file path="/helloworld.txt" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395568806960" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -557,7 +557,11 @@
       <created>1395568903434</created>
       <updated>1395568903435</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="idea config">
+      <created>1395568921827</created>
+      <updated>1395568921827</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
