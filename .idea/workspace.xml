@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72244a37-d86e-4ae1-8b60-31a41e9b448d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="helloworld.iws" />
@@ -27,7 +25,7 @@
     <file path="/a.xml" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395567375794" ignored="false" />
     <file path="/pom.xml" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395567529748" ignored="false" />
     <file path="/index.jsp" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395567734866" ignored="false" />
-    <file path="/Dummy.txt" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395568838118" ignored="false" />
+    <file path="/Dummy.txt" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395568899340" ignored="false" />
     <file path="/helloworld.txt" changelist="72244a37-d86e-4ae1-8b60-31a41e9b448d" time="1395568806960" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +99,7 @@
       <file leaf-file-name="index.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="28" selection-start="268" selection-end="268" vertical-scroll-proportion="0.51232874">
+            <state line="18" column="7" selection-start="461" selection-end="461" vertical-scroll-proportion="0.83835614">
               <folding />
             </state>
           </provider>
@@ -555,7 +553,11 @@
       <created>1395568861113</created>
       <updated>1395568861113</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="idea config">
+      <created>1395568903434</created>
+      <updated>1395568903435</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -632,7 +634,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="third commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea config" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -647,6 +649,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="third commit" />
+    <MESSAGE value="idea config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -679,7 +682,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="268" selection-end="268" vertical-scroll-proportion="0.51232874">
+        <state line="18" column="7" selection-start="461" selection-end="461" vertical-scroll-proportion="0.83835614">
           <folding />
         </state>
       </provider>
