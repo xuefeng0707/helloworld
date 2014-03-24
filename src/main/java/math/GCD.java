@@ -1,5 +1,7 @@
 package math;
 
+import java.math.BigInteger;
+
 /**
  * 求两个整数的最大公约数
  * 算法：辗转相除法，欧几里德算法
@@ -27,5 +29,20 @@ public class GCD {
 
 		// 总是返回正整数或0
 		return a > 0 ? a : -a;
+	}
+
+	public static BigInteger gcd(BigInteger a, BigInteger b) {
+		// 总是返回正整数或0
+		a = a.abs();
+		// BigInteger作mod运算时，除数不能为负
+		b = b.abs();
+		BigInteger temp;
+		while(!b.equals(BigInteger.ZERO)) {
+			temp = a;
+			a = b;
+			b = temp.mod(b);
+		}
+
+		return a;
 	}
 }

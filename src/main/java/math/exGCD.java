@@ -1,5 +1,7 @@
 package math;
 
+import java.math.BigInteger;
+
 /**
  * 扩展欧几里德算法
  * a*x+b*y=gcd(a,b)
@@ -13,7 +15,7 @@ public class exGCD {
 
 		int gcd = exgcd(a, b, xy);
 
-		System.out.println(xy.x + ", " + xy.y);
+		// System.out.println(xy.x + ", " + xy.y);
 
 		return gcd;
 	}
@@ -34,8 +36,38 @@ public class exGCD {
 		return g > 0 ? g : -g;
 	}
 
+	public static BigInteger exgcd(BigInteger a, BigInteger b) {
+		BigXY xy = new BigXY();
+
+		BigInteger gcd = exgcd(a, b, xy);
+
+		// System.out.println(xy.x + ", " + xy.y);
+
+		return gcd;
+	}
+
+	public static BigInteger exgcd(BigInteger a, BigInteger b, BigXY xy) {
+		if(b.equals(BigInteger.ZERO)) {
+			//此时gcd(a,b)=a，a*1+b*0=a
+			xy.x = BigInteger.ONE;
+			xy.y = BigInteger.ZERO;
+			return a;
+		}
+		BigInteger g = exgcd(b, a.mod(b), xy);
+
+		BigInteger temp = xy.x;
+		xy.x = xy.y;
+		xy.y = temp.subtract(a.divide(b).multiply(xy.y));
+
+		return g.abs();
+	}
+
 	// 记录计算过程中x、y的变化
 	public static class XY {
 		public int x, y;
+	}
+
+	public static class BigXY {
+		public BigInteger x, y;
 	}
 }
