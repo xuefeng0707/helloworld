@@ -24,6 +24,8 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public class RSA {
 
+	private static final String ALGORITHM = "RSA";
+
 	/** 公钥 */
 	private RSAPublicKey publicKey;
 
@@ -42,7 +44,7 @@ public class RSA {
 	}
 
 	private void initKey() throws NoSuchAlgorithmException {
-		KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+		KeyPairGenerator generator = KeyPairGenerator.getInstance(ALGORITHM);
 		generator.initialize(1024);
 		KeyPair keypair = generator.generateKeyPair();
 
@@ -59,13 +61,7 @@ public class RSA {
 		throws NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidKeyException,
 			IllegalBlockSizeException, BadPaddingException {
-		X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicKey.getEncoded());
-		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-		Key realPublicKey = keyFactory.generatePublic(keySpec);
-
-		Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
-		cipher.init(Cipher.ENCRYPT_MODE, realPublicKey);
-		return cipher.doFinal(input);
+		return byPublicKey(input, true);
 	}
 
 	/**
@@ -77,13 +73,21 @@ public class RSA {
 		throws NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidKeyException,
 			IllegalBlockSizeException, BadPaddingException{
+		return byPublicKey(encrypted, false);
+	}
+
+	// 公钥加密、解密
+	private byte[] byPublicKey(byte[] data, boolean encrypt)
+			throws NoSuchAlgorithmException, InvalidKeySpecException,
+			NoSuchPaddingException, InvalidKeyException,
+			IllegalBlockSizeException, BadPaddingException {
 		X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicKey.getEncoded());
-		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+		KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
 		Key realPublicKey = keyFactory.generatePublic(keySpec);
 
-		Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
-		cipher.init(Cipher.DECRYPT_MODE, realPublicKey);
-		return cipher.doFinal(encrypted);
+		Cipher cipher = Cipher.getInstance(ALGORITHM);
+		cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, realPublicKey);
+		return cipher.doFinal(data);
 	}
 
 	/**
@@ -95,13 +99,7 @@ public class RSA {
 		throws NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidKeyException,
 			IllegalBlockSizeException, BadPaddingException{
-		PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateKey.getEncoded());
-		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-		Key realPrivateKey = keyFactory.generatePrivate(keySpec);
-
-		Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
-		cipher.init(Cipher.ENCRYPT_MODE, realPrivateKey);
-		return cipher.doFinal(input);
+		return byPrivateKey(input, true);
 	}
 
 	/**
@@ -113,14 +111,20 @@ public class RSA {
 		throws NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidKeyException,
 			IllegalBlockSizeException, BadPaddingException {
-		PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateKey.getEncoded());
-		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-		Key realPrivateKey = keyFactory.generatePrivate(keySpec);
-
-		Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
-		cipher.init(Cipher.DECRYPT_MODE, realPrivateKey);
-		return cipher.doFinal(encrypted);
+		return byPrivateKey(encrypted, false);
 	}
 
+	// 私钥加密、解密
+	private byte[] byPrivateKey(byte[] data, boolean encrypt)
+			throws NoSuchAlgorithmException, InvalidKeySpecException,
+			NoSuchPaddingException, InvalidKeyException,
+			IllegalBlockSizeException, BadPaddingException {
+		PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateKey.getEncoded());
+		KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
+		Key realPrivateKey = keyFactory.generatePrivate(keySpec);
 
+		Cipher cipher = Cipher.getInstance(ALGORITHM);
+		cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, realPrivateKey);
+		return cipher.doFinal(data);
+	}
 }
