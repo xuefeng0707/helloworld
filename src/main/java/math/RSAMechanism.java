@@ -39,7 +39,9 @@ public class RSAMechanism {
 		BigInteger euler = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 //		BigInteger e = new BigDecimal(euler).multiply(BigDecimal.valueOf(new Random().nextDouble())).toBigInteger();
 //		BigInteger e = BigInteger.valueOf(79);
-		BigInteger e = getRandomCoprime(euler, euler);
+//		BigInteger e = getRandomCoprime(euler, euler);
+		// JDK默认实现里默认用的是 RSAKeyGenParameterSpec.F4 = 65537
+		BigInteger e = BigInteger.valueOf(65537);
 		BigInteger d = ModularInverse.getInverse(e, euler);
 
 		rsa.n = n;
@@ -63,12 +65,12 @@ public class RSAMechanism {
 		for(int i=0;i<pieceCount;i++) {
 			begin = i * 3;
 			piece = BigInteger.valueOf(Long.parseLong(number.substring(begin, begin + 3)));
-			result.append("" + piece.pow(e.intValue()).mod(n)); // ?? invValue()
+			result.append("" + piece.modPow(e, n));
 			result.append(PLACEHOLDER);
 		}
 		if(extra > 0) {
 			piece = BigInteger.valueOf(Long.parseLong(number.substring(len - extra)));
-			result.append("" + piece.pow(e.intValue()).mod(n)); // ?? invValue()
+			result.append("" + piece.modPow(e, n));
 		} else {
 			result.deleteCharAt(result.length());
 		}
@@ -81,8 +83,8 @@ public class RSAMechanism {
 		StringBuffer result = new StringBuffer();
 		BigInteger p;
 		for(String piece : pieces) {
-			p = BigInteger.valueOf(Long.parseLong(piece));
-			result.append("" + p.pow(d.intValue()).mod(n)); // ?? invValue()
+			p = new BigInteger(piece);
+			result.append("" + p.modPow(d, n));
 		}
 
 		return result.toString();
