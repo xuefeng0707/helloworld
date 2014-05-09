@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/helloworld.iml" filepath="$PROJECT_DIR$/helloworld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../openjdk/openjdk.iml" filepath="$PROJECT_DIR$/../openjdk/openjdk.iml" />
     </modules>
   </component>
 </project>

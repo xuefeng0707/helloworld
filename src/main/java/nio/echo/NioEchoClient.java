@@ -18,7 +18,7 @@ public class NioEchoClient {
 		
 		SocketChannel sc = SocketChannel.open();
 		sc.configureBlocking(false);
-		sc.connect(new InetSocketAddress(7777));
+		sc.connect(new InetSocketAddress("192.168.1.15",9999));
 		sc.register(selector, SelectionKey.OP_CONNECT);
 		
 		BufferedReader stdReader = new BufferedReader(new InputStreamReader(System.in));

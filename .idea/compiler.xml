@@ -23,6 +23,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="helloworld" />
+        <module name="openjdk" />
       </profile>
     </annotationProcessing>
   </component>
