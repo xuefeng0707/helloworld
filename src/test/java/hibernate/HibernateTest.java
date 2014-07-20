@@ -1,6 +1,6 @@
 package hibernate;
 
-import java.util.List;
+/*import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,3 +32,4 @@ public class HibernateTest {
 		session.close();
 	}
 }
+*/
